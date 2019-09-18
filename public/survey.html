@@ -144,16 +144,7 @@
 
 
       <!-- Submit Button -->
-      
-        <button
-        type="submit"
-        class="btn btn-primary btn-lg btn-block"
-        id="submit"><a href="/results"></a>
-        <i class="fa fa-check-circle"></i> Submit
-      </button>
-    </a>
-    <br>
-    <script>
+      <script>
         $("#submit").click((event) => {
             event.preventDefault();
             var userData = {
@@ -179,5 +170,17 @@
             })
         })
     </script>
+    
+    <a href="/results">
+        <button
+        type="submit"
+        class="btn btn-primary btn-lg btn-block"
+        id="submit">
+        
+        <i class="fa fa-check-circle"></i> Submit
+      </button>
+    </a>
+    <br>
+
   </body>
 </html>
