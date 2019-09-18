@@ -25,17 +25,25 @@
         </h1>
         <hr />
         <h2 class="text-center">
-          Answer a few questions and find compatible friends!
+          Meet your best friend,
         </h2>
         <br />
+        <h1 class="text-center" id="bestFriend"></h1>
 
-        <div class="text-center">
-          <a href="/survey">
-            <button class="btn btn-lg btn-primary">
-              <span class="fa fa-list-alt"></span> Survey
-            </button>
-          </a>
-        </div>
+        <script>
+          $.get("/api/friends", function(data) {
+            for (var i = 0; i < data.length - 1; i++) {
+              console.log("Name:", data[i].name);
+              if (data[i].best) {
+                $("#bestFriend").append(data[i].name + "!!!" + "<br><br>");
+                $("<img/>")
+                  .attr("src", data[i].photo)
+                  .appendTo("#bestFriend")
+                  .width("250px");
+              }
+            }
+          });
+        </script>
       </div>
     </div>
   </body>
