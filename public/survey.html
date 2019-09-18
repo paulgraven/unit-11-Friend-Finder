@@ -13,8 +13,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
@@ -142,10 +141,19 @@
       </select>
       <br><br><br>
 
-
+        <button
+        type="submit"
+        class="btn btn-primary btn-lg btn-block"
+        id="submit">
+        <i class="fa fa-check-circle"></i> Submit
+      </button>
+      <br>
+      
       <!-- Submit Button -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script>
-        $("#submit").click((event) => {
+        $("#submit").on("click", function(event) {
             event.preventDefault();
             var userData = {
                     name: $("#name").val(),
@@ -168,19 +176,10 @@
             $.post("/api/friends", userData, function (data, status) {
                 console.log(data, status);
             })
+            window.location.href = "/results"
         })
     </script>
-    
-    <a href="/results">
-        <button
-        type="submit"
-        class="btn btn-primary btn-lg btn-block"
-        id="submit">
-        
-        <i class="fa fa-check-circle"></i> Submit
-      </button>
-    </a>
-    <br>
+  
 
   </body>
 </html>
